@@ -1,20 +1,25 @@
 // src/app/page.js
+"use client";
 import Link from "next/link"
+import { Button } from "@chakra-ui/react"
+import { Input } from "@chakra-ui/react"
+import { Heading } from "@chakra-ui/react"
+
+
 
 export default function Home() {
   return (
     <main>
-      <h1>Welcome to the Home Page</h1>
-      <p>Navigate to:</p>
+
       <Link href="/City">
-        <button>Go to City page</button>
+        <Button>City</Button>
       </Link>
       <Link href="/Favorites">
-        <button>Go to Favorites page</button>
+        <Button>Favorites</Button>
       </Link>
-      <Link href="/Search">
-        <button>Go to Search page</button>
-      </Link>
+      <Input placeholder="Search..." />
+      <Heading>Welcome to the Home Page</Heading>
+
     </main>
   );
 }
