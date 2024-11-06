@@ -17,6 +17,9 @@ export default function Home() {
       <Link href="/Favorites">
         <Button>Favorites</Button>
       </Link>
+      <Link href="/Login">
+        <Button>Login</Button>
+      </Link>
       <Input placeholder="Search..." />
       <Heading>Welcome to the Home Page</Heading>
 
