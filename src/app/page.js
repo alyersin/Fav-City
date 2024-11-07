@@ -53,9 +53,10 @@ export default function Home() {
         padding="20px"
         flex="1"
       >
-        <Heading size="xl" marginBottom="16px">
-          what's your destination?
-        </Heading>
+      <Heading size="xl" marginBottom="16px">
+        what&#39;s your destination?
+      </Heading>
+
         <Box display="flex" alignItems="center" gap="8px">
           <Input
             placeholder="City, Region or Country"
