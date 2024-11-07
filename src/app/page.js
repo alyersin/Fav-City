@@ -50,7 +50,7 @@ export default function Home() {
           ) : (
             <Box display="flex" alignItems="center" gap="18px">
               <Text>Currency</Text>
-              <Text>Language</Text>
+              <Text>English</Text>
               <Link href="/City">
                 <Text>City</Text>
               </Link>
