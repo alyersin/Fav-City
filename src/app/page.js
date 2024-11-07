@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Button, Input, Heading, Box, Text, Icon, HStack } from "@chakra-ui/react";
+import { Button, Input, Heading, Box, Text, Icon, HStack, Image } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
 
 export default function Home() {
@@ -18,9 +18,7 @@ export default function Home() {
         >
           <Box display="flex" alignItems="center" gap="18px">
             <Link href="/">
-              <Heading as="h2" size="lg" textColor="#00308F">
-                Fav City
-              </Heading>
+            <Image src="/assets/Fav-City-01.png" alt="Fav City Logo" boxSize="50px" width="100%" />
             </Link>
             <Text>Currency</Text>
             <Text>Language</Text>
@@ -74,7 +72,7 @@ export default function Home() {
       <Box
         as="footer"
         width="100%"
-        bg="gray.800"
+        bg="gray.900"
         color="white"
         padding="16px"
         textAlign="center"

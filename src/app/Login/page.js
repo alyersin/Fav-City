@@ -1,16 +1,19 @@
 "use client";
 
-import { Box, Image, Text, Button, FormControl, FormLabel, Input, Heading, Divider, Flex } from "@chakra-ui/react";
+import { Box, Image, Text, Button, FormControl, FormLabel, Input, Heading, Divider, Flex, Center } from "@chakra-ui/react";
 import Link from "next/link";
 
 export default function Login() {
     return (
         <Box
             bg="linear-gradient(179.41deg, #D3E6FF 0.51%, #FFFFFF 100%)"
-            display="grid"
-            placeItems="center"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
             minHeight="100vh"
             width="100vw"
+            gap="24px"
         >
             <Box 
                 bg="white"
@@ -83,7 +86,6 @@ export default function Login() {
                 </Box>
             </Box>
 
-            {/* Navbar Links */}
             <Box display="flex" gap="24px" fontSize="lg" mt="20px">
                 <Link href="/">
                     <Text _hover={{ color: "blue.500" }} cursor="pointer">Home</Text>
