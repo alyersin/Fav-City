@@ -1,9 +1,29 @@
 "use client";
 import Link from "next/link";
-import { Button, Input, Heading, Box, Text, Icon, HStack, Image } from "@chakra-ui/react";
+import {
+  Button,
+  Input,
+  Heading,
+  Box,
+  Text,
+  Icon,
+  HStack,
+  Image,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerBody,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 export default function Home() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
     <Box minHeight="100vh" display="flex" flexDirection="column">
       {/* Header Section */}
@@ -12,31 +32,63 @@ export default function Home() {
           display="flex"
           justifyContent="space-between"
           alignItems="center"
-          padding="10px 40px"
+          padding={{ base: "10px 20px", md: "10px 40px" }}
           maxWidth="1280px"
           mx="auto"
         >
-          <Box display="flex" alignItems="center" gap="18px">
-            <Link href="/">
-            <Image src="/assets/Fav-City-01.png" alt="Fav City Logo" boxSize="50px" width="100%" />
-            </Link>
-            <Text>Currency</Text>
-            <Text>Language</Text>
-          </Box>
+          {/* Logo */}
+          <Link href="/">
+            <Image src="/assets/Fav-City-01.png" alt="Fav City Logo" boxSize="50px" objectFit="contain" width="100%" />
+          </Link>
 
-          <Box display="flex" alignItems="center" gap="18px">
-            <Link href="/City">
-              <Text>City</Text>
-            </Link>
-            <Link href="/Favorites">
-              <Text>Favorites</Text>
-            </Link>
-            <Link href="/Login">
-              <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">Login</Button>
-            </Link>
-          </Box>
+          {/* Desktop Menu */}
+          {isMobile ? (
+            // Hamburger Icon for Mobile
+            <Button onClick={onOpen} variant="ghost">
+              <HamburgerIcon boxSize={6} />
+            </Button>
+          ) : (
+            <Box display="flex" alignItems="center" gap="18px">
+              <Text>Currency</Text>
+              <Text>Language</Text>
+              <Link href="/City">
+                <Text>City</Text>
+              </Link>
+              <Link href="/Favorites">
+                <Text>Favorites</Text>
+              </Link>
+              <Link href="/Login">
+                <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">
+                  Login
+                </Button>
+              </Link>
+            </Box>
+          )}
         </Box>
       </Box>
+
+      {/* Mobile Drawer Menu */}
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerBody display="flex" flexDirection="column" alignItems="center" paddingY="40px">
+            <Text fontSize="xl" marginBottom="16px">Currency</Text>
+            <Text fontSize="xl" marginBottom="16px">Language</Text>
+            <Link href="/City" onClick={onClose}>
+              <Text fontSize="xl" marginBottom="16px">City</Text>
+            </Link>
+            <Link href="/Favorites" onClick={onClose}>
+              <Text fontSize="xl" marginBottom="16px">Favorites</Text>
+            </Link>
+            <Link href="/Login" onClick={onClose}>
+              <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">
+                Login
+              </Button>
+            </Link>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
 
       {/* Main Content Section */}
       <Box
@@ -53,31 +105,24 @@ export default function Home() {
         padding="20px"
         flex="1"
       >
-      <Heading size="xl" marginBottom="16px">
-        what&#39;s your destination?
-      </Heading>
+        <Heading size="xl" marginBottom="16px" textAlign="center">
+          what&#39;s your destination?
+        </Heading>
 
-        <Box display="flex" alignItems="center" gap="8px">
+        <Box display="flex" alignItems="center" gap="8px" flexDirection={{ base: "column", md: "row" }}>
           <Input
             placeholder="City, Region or Country"
-            width="300px"
+            width={{ base: "100%", md: "300px" }}
             bg="white"
             color="black"
             _placeholder={{ color: "gray.500" }}
           />
-          <Button colorScheme="blue">Search</Button>
+          <Button colorScheme="blue" width={{ base: "100%", md: "auto" }}>Search</Button>
         </Box>
       </Box>
 
       {/* Footer Section */}
-      <Box
-        as="footer"
-        width="100%"
-        bg="gray.900"
-        color="white"
-        padding="16px"
-        textAlign="center"
-      >
+      <Box as="footer" width="100%" bg="gray.900" color="white" padding="16px" textAlign="center">
         <Text fontSize="sm" mb="8px">
           &copy; {new Date().getFullYear()} Fav City. All rights reserved.
         </Text>
