@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
-import { Button, Input, Heading, Box, Text } from "@chakra-ui/react";
+import { Button, Input, Heading, Box, Text, Icon, HStack } from "@chakra-ui/react";
+import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main>
+    <Box minHeight="100vh" display="flex" flexDirection="column">
       {/* Header Section */}
       <Box bg="gray.50" paddingY="10px">
         <Box
@@ -13,7 +14,7 @@ export default function Home() {
           alignItems="center"
           padding="10px 40px"
           maxWidth="1280px"
-          mx="auto" // Centers the header within the viewport
+          mx="auto"
         >
           <Box display="flex" alignItems="center" gap="18px">
             <Link href="/">
@@ -33,13 +34,13 @@ export default function Home() {
               <Text>Favorites</Text>
             </Link>
             <Link href="/Login">
-              <Button>Login</Button>
+              <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">Login</Button>
             </Link>
           </Box>
         </Box>
       </Box>
 
-      {/* Hero Section */}
+      {/* Main Content Section */}
       <Box
         backgroundImage="url('/assets/australia-land2.jpg')"
         backgroundSize="cover"
@@ -52,6 +53,7 @@ export default function Home() {
         justifyContent="center"
         color="white"
         padding="20px"
+        flex="1"
       >
         <Heading size="xl" marginBottom="16px">
           what's your destination?
@@ -67,6 +69,34 @@ export default function Home() {
           <Button colorScheme="blue">Search</Button>
         </Box>
       </Box>
-    </main>
+
+      {/* Footer Section */}
+      <Box
+        as="footer"
+        width="100%"
+        bg="gray.800"
+        color="white"
+        padding="16px"
+        textAlign="center"
+      >
+        <Text fontSize="sm" mb="8px">
+          &copy; {new Date().getFullYear()} Fav City. All rights reserved.
+        </Text>
+        <HStack justify="center" spacing="20px">
+          <Link href="https://github.com/alyersin" isExternal>
+            <Icon as={FaGithub} boxSize="6" _hover={{ color: "gray.400" }} />
+          </Link>
+          <Link href="https://www.linkedin.com/in/ersin-ali-228301107/" isExternal>
+            <Icon as={FaLinkedin} boxSize="6" _hover={{ color: "blue.400" }} />
+          </Link>
+          <Link href="https://www.facebook.com/aly.ersin" isExternal>
+            <Icon as={FaFacebook} boxSize="6" _hover={{ color: "blue.600" }} />
+          </Link>
+          <Link href="https://x.com/shase6" isExternal>
+            <Icon as={FaTwitter} boxSize="6" _hover={{ color: "blue.500" }} />
+          </Link>
+        </HStack>
+      </Box>
+    </Box>
   );
 }
