@@ -1,5 +1,5 @@
 
-# Fav City app - [https://fav-city.vercel.app/](https://fav-city.vercel.app/)
+# Fav City - [https://fav-city.vercel.app/](https://fav-city.vercel.app/)
 
 Fav City is a web-based travel application developed with Next.js and integrated with MongoDB. It allows users to explore various cities, add cities to favorites, customize settings, and access city-specific details such as language, currency, and popular destinations.
 
