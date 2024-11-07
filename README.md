@@ -70,6 +70,7 @@ Fav City is designed to provide users with a seamless travel experience by allow
 - **MongoDB (via Mongoose)**: For data storage and retrieval.
 - **Chakra UI**: For styled, responsive UI components.
 - **NextAuth**: For handling authentication with email and password.
+- **Adobe Illustrator**: Used for creating custom visuals and graphics used throughout the app.
 
 ## Future Development
 
