@@ -1,16 +1,17 @@
-
 # Fav City - [https://fav-city.vercel.app/](https://fav-city.vercel.app/)
+
+![Screenshot of Fav City](./public/screenshot.jpg)
 
 Fav City is a web-based travel application developed with Next.js and integrated with MongoDB. It allows users to explore various cities, add cities to favorites, customize settings, and access city-specific details such as language, currency, and popular destinations.
 
 ## Table of Contents
 
-- [About the Project](#about-the-project)  
-- [Features](#features)  
-- [Installation](#installation)  
-- [Usage](#usage)  
-- [Technologies Used](#technologies-used)  
-- [Future Development](#future-development)  
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Future Development](#future-development)
 
 ## About the Project
 
@@ -36,13 +37,16 @@ Fav City is designed to provide users with a seamless travel experience by allow
    cd FavCity
    ```
 2. **Install Dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Configure Environment Variables**:
+
    - Create a `.env.local` file at the project root.
    - Add your MongoDB URI and NextAuth secret:
+
    ```plaintext
    MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/fav-city?retryWrites=true&w=majority
    NEXTAUTH_SECRET=your_secret
