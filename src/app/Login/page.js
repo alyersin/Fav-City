@@ -37,7 +37,7 @@ export default function Login() {
                 {/* Text container on the right */}
                 <Box flex="1" display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap="16px">
                     <Heading as="h2" size="lg" textColor="#00308F">
-                        FavCity
+                        Fav City
                     </Heading>
                     <FormControl id="email" width="90%">                      
                         <FormLabel fontSize="sm" textColor="#00308F">Email</FormLabel>
@@ -54,14 +54,14 @@ export default function Login() {
 
                     <Text fontSize="sm" width="90%"> {/* Makes the text smaller */}
                         If you need to reset your password,{" "}
-                        <Link href="/">
+                        <Link href="/Login/ResetPassword">
                             <Text as="span" textDecoration="underline" color="blue.500" _hover={{ color: "blue.700" }}>
                                 you can do so here.
                             </Text>
                         </Link>
                     </Text>
 
-                                        {/* Horizontal line with OR in the center */}
+                    {/* Horizontal line with OR in the center */}
                     <Flex align="center" width="90%" my="10px">
                         <Divider />
                         <Text px="2" fontSize="sm" color="gray.500">OR</Text>
@@ -74,15 +74,30 @@ export default function Login() {
 
                     <Text fontSize="sm" width="90%" textAlign="center"> {/* Makes the text smaller */}
                         Not a member yet? {" "}
-                        <Link href="/">
+                        <Link href="/Login/Register">
                             <Text as="span" textDecoration="underline" color="blue.500" _hover={{ color: "blue.700" }}>
                                 Get started here.
                             </Text>
                         </Link>
                     </Text>
-
                 </Box>
             </Box>
+
+            {/* Navbar Links */}
+            <Box display="flex" gap="24px" fontSize="lg" mt="20px">
+                <Link href="/">
+                    <Text _hover={{ color: "blue.500" }} cursor="pointer">Home</Text>
+                </Link>
+
+                <Link href="/City">
+                    <Text _hover={{ color: "blue.500" }} cursor="pointer">Cities</Text>
+                </Link>
+
+                <Link href="/Favorites">
+                    <Text _hover={{ color: "blue.500" }} cursor="pointer">Favorites</Text>
+                </Link>
+            </Box>
+
         </Box>
     );
 }
