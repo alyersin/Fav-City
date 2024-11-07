@@ -34,7 +34,7 @@ Fav City is designed to provide users with a seamless travel experience by allow
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/alyersin/FavCity.git
-   cd FavCity
+   cd Fav-City
    ```
 2. **Install Dependencies**:
 
