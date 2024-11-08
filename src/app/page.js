@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import {
   Button,
   Input,
@@ -23,6 +24,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const { data: session } = useSession();
 
   return (
     <Box minHeight="100vh" display="flex" flexDirection="column">
@@ -43,7 +45,6 @@ export default function Home() {
 
           {/* Desktop Menu */}
           {isMobile ? (
-            // Hamburger Icon for Mobile
             <Button onClick={onOpen} variant="ghost">
               <HamburgerIcon boxSize={6} />
             </Button>
@@ -57,11 +58,21 @@ export default function Home() {
               <Link href="/Favorites">
                 <Text>Favorites</Text>
               </Link>
-              <Link href="/Login">
-                <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">
-                  Login
-                </Button>
-              </Link>
+              {session ? (
+                // Show profile link if user is logged in
+                <Link href="/profile">
+                  <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">
+                    Profile
+                  </Button>
+                </Link>
+              ) : (
+                // Show login button if user is not logged in
+                <Link href="/Login">
+                  <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">
+                    Login
+                  </Button>
+                </Link>
+              )}
             </Box>
           )}
         </Box>
@@ -81,11 +92,19 @@ export default function Home() {
             <Link href="/Favorites" onClick={onClose}>
               <Text fontSize="xl" marginBottom="16px">Favorites</Text>
             </Link>
-            <Link href="/Login" onClick={onClose}>
-              <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">
-                Login
-              </Button>
-            </Link>
+            {session ? (
+              <Link href="/profile" onClick={onClose}>
+                <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">
+                  Profile
+                </Button>
+              </Link>
+            ) : (
+              <Link href="/Login" onClick={onClose}>
+                <Button colorScheme="pink" borderRadius="50px" padding="0 28px" fontSize="lg">
+                  Login
+                </Button>
+              </Link>
+            )}
           </DrawerBody>
         </DrawerContent>
       </Drawer>
